@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.demo.client;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -6,16 +6,16 @@ import java.time.Period;
 
 @Entity
 @Table
-public class Student {
+public class Client {
     @Id
     @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
+            name = "client_sequence",
+            sequenceName = "client_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
+            generator = "client_sequence"
     )
     private Long id;
     private String name;
@@ -24,22 +24,22 @@ public class Student {
     @Transient
     private Integer age;
 
-    public Student() {
+    public Client() {
     }
 
-    public Student(Long id,
-                   String name,
-                   String email,
-                   LocalDate dob) {
+    public Client(Long id,
+                  String name,
+                  String email,
+                  LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
     }
 
-    public Student(String name,
-                   String email,
-                   LocalDate dob) {
+    public Client(String name,
+                  String email,
+                  LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
@@ -87,7 +87,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

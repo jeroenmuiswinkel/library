@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.demo.client;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -9,20 +9,19 @@ import java.time.Month;
 import java.util.List;
 
 @Configuration
-public class StudentConfig {
+public class ClientConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository repository) {
+    CommandLineRunner commandLineRunnerClient(ClientRepository repository) {
         return args -> {
-            Student Mariam = new Student("Mariam",
+            Client mariam = new Client("Mariam",
                     "mariam.jamal@gmail.com",
                     LocalDate.of(2000, Month.JANUARY, 5));
-            Student Alex = new Student("Alex",
+            Client alex = new Client("Alex",
                     "alex@gmail.com",
                     LocalDate.of(2004, Month.JANUARY, 5));
 
-            repository.saveAll(List.of(Mariam, Alex));
+            repository.saveAll(List.of(mariam, alex));
         };
     }
-
 }
